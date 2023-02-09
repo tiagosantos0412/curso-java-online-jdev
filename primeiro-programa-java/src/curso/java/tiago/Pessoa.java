@@ -6,6 +6,14 @@ public class Pessoa {
 	private String sobrenome;
 	private int idade;
 	private String cpf;
+	private char sexo;
+	
+	public char getSexo() {
+		return sexo;
+	}
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
 	private String nomeDaMae;
 	
 	public String getCpf() {
