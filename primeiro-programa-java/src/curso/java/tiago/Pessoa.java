@@ -6,12 +6,19 @@ public class Pessoa {
 	private String sobrenome;
 	private int idade;
 	private String cpf;
+	private String nomeDaMae;
 	
 	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public String getNomeDaMae() {
+		return nomeDaMae;
+	}
+	public void setNomeDaMae(String nomeDaMae) {
+		this.nomeDaMae = nomeDaMae;
 	}
 	public String getNome() {
 		return nome;
