@@ -8,7 +8,7 @@ public class OperacoesEntreInteiros {
 		Scanner scan = new Scanner(System.in).useLocale(Locale.US);
 		
 		System.out.println("*********************************************************");
-		System.out.println("*         Distema de cálculo de média escolar           *");
+		System.out.println("*         Sistema de cálculo de média escolar           *");
 		System.out.println("*********************************************************");
 		System.out.println("---------------------------------------------------------");
 		System.out.println("Digite o nome do aluno:");

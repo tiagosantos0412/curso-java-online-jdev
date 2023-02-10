@@ -2,18 +2,25 @@ package com.jdev.variaveis.tipos.java;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class OperacoesEntreDecimais {
+public class OperacoesLogicas {
 
 	public static void main(String[] args) {
+		String situacao = "";
+		
 		Scanner scan = new Scanner(System.in).useLocale(Locale.US);
 		
 		System.out.println("*********************************************************");
 		System.out.println("*         Sistema de cálculo de média escolar           *");
 		System.out.println("*********************************************************");
 		System.out.println("---------------------------------------------------------");
-		System.out.println("Digite o nome do aluno:");
-		String nomeAluno = scan.nextLine();
 		
+		System.out.println("Digite o nome do aluno(a):");
+		String nomeAluno = scan.nextLine();
+		System.out.println("Digite o número do RA do aluno(a):");
+		int raAluno = scan.nextInt();
+		
+		System.out.println("Sexo: 'M' ou 'F'");
+		char sexo = scan.next().charAt(0);
 		
 		System.out.println("Entre com a nota de Literatura:");
 		double notaLiteratura = scan.nextDouble();
@@ -32,13 +39,58 @@ public class OperacoesEntreDecimais {
 		
 		double mediaEscolar = (notaLiteratura + notaMatematica + notaHistoria + notaGeografia + notaBiologia) / 5;
 		
+		scan.close();
+				
+		situacao = validacao(mediaEscolar, sexo);
+		
 		System.out.println("---------------------------------------------------------");
-		System.out.println("A média do aluno " + nomeAluno +" é: " + mediaEscolar);
+		System.out.println("Aluno: " + nomeAluno + " RA: " + raAluno + " sexo: " + sexo);
+		System.out.println(situacao + " com a média final de  " + mediaEscolar);
+		System.out.println("---------------------------------------------------------");
+		
 		
 		System.out.println("*********************************************************");
 		System.out.println("*                 Fim do programa                       *");
 		System.out.println("*********************************************************");
 
+	}
+	
+	public static String validacao(double mediaEscolar, char sexo) {
+		String situacao = "";
+		if(mediaEscolar > 0 && mediaEscolar <= 5) 
+		{
+			if(sexo == 'f' || sexo == 'F') 
+			{
+				situacao = "Aluna reprovada";
+			}
+			else 
+			{
+				situacao = "Aluno reprovado";
+			}
+		}
+		else if(mediaEscolar > 5 && mediaEscolar <= 6.5)
+		{
+			if(sexo == 'f' || sexo == 'F') 
+			{
+				situacao = "Aluna em recuperação!";
+			}
+			else
+			{
+				situacao = "Aluno em recuperação!";
+			}
+		}
+		else
+		{
+			if(sexo == 'f' || sexo == 'F') 
+			{
+				situacao = "Aluna aprovada";
+			}
+			else 
+			{
+				situacao = "Aluno aprovado";
+			}
+		}
+		return situacao;
 	}
 
 }
