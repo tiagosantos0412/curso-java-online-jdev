@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class OperacoesLogicas {
 
 	public static void main(String[] args) {
-		String situacao = "";
+		String situacao, aluno = "";
 		
 		Scanner scan = new Scanner(System.in).useLocale(Locale.US);
 		
@@ -40,11 +40,13 @@ public class OperacoesLogicas {
 		double mediaEscolar = (notaLiteratura + notaMatematica + notaHistoria + notaGeografia + notaBiologia) / 5;
 		
 		scan.close();
+		
+		aluno = verificaSexo(sexo);
 				
 		situacao = validacao(mediaEscolar, sexo);
 		
 		System.out.println("---------------------------------------------------------");
-		System.out.println("Aluno: " + nomeAluno + " RA: " + raAluno + " sexo: " + sexo);
+		System.out.println(aluno + nomeAluno + " RA: " + raAluno + " sexo: " + sexo);
 		System.out.println(situacao + " com a média final de  " + mediaEscolar);
 		System.out.println("---------------------------------------------------------");
 		
@@ -55,40 +57,25 @@ public class OperacoesLogicas {
 
 	}
 	
+	public static String verificaSexo(char sexo) {
+		String aluno = "";
+		aluno = sexo == 'f' || sexo == 'F'?"Aluna: ":"Aluno: ";
+		return aluno;
+	}
+	
 	public static String validacao(double mediaEscolar, char sexo) {
 		String situacao = "";
 		if(mediaEscolar > 0 && mediaEscolar <= 5) 
-		{
-			if(sexo == 'f' || sexo == 'F') 
-			{
-				situacao = "Aluna reprovada";
-			}
-			else 
-			{
-				situacao = "Aluno reprovado";
-			}
+		{	
+			situacao = sexo == 'f' || sexo == 'F'?"Aluna reprovada":"Aluno reprovado";
 		}
-		else if(mediaEscolar > 5 && mediaEscolar <= 6.5)
+		else if(mediaEscolar > 5 && mediaEscolar <= 6.9)
 		{
-			if(sexo == 'f' || sexo == 'F') 
-			{
-				situacao = "Aluna em recuperação!";
-			}
-			else
-			{
-				situacao = "Aluno em recuperação!";
-			}
+			situacao = sexo == 'f' || sexo == 'F'?"Aluna em recuperação!":"Aluno em recuperação!";
 		}
 		else
 		{
-			if(sexo == 'f' || sexo == 'F') 
-			{
-				situacao = "Aluna aprovada";
-			}
-			else 
-			{
-				situacao = "Aluno aprovado";
-			}
+			situacao = sexo == 'f' || sexo == 'F'?"Aluna aprovada":"Aluno aprovado";
 		}
 		return situacao;
 	}
