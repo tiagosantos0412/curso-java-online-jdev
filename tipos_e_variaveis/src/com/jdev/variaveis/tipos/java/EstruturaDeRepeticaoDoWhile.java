@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class EstruturaDeRepeticaoDoWhile {
 
 	public static void main(String[] args) {
-Scanner scan = new Scanner(System.in).useLocale(Locale.US);		
+		Scanner scan = new Scanner(System.in).useLocale(Locale.US);		
 		
 		System.out.println("*********************************************************");
 		System.out.println("*         Sistema de cálculo de Tabuada                 *");
